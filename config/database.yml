@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: 
+  password: 
+
+development:
+  <<: *default
+  database: rtc_development
+
+test:
+  <<: *default
+  database: rtc_test
+
+production:
+  <<: *default
+  database: rtc_production
