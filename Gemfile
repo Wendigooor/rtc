@@ -27,7 +27,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'devise'
-gem 'twitter-bootstrap-rails'
 gem 'haml'
 gem 'html2haml'
 

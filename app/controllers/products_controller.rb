@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :check_role, only: [:edit, :update, :destroy]
 
   def index
     @products = Product.all
@@ -56,6 +57,12 @@ private
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def check_role
+    unless current_user && @product.user_id == current_user.id
+      redirect_to products_url
+    end
   end
 
   def product_params

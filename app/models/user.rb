@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
 
   has_many :products
+  has_many :charges
 
   def self.omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

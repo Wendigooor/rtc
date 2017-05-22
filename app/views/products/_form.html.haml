@@ -1,4 +1,4 @@
-= form_for(product) do |f|
+= form_for product, html: { class: "form form-horizontal" } do |f|
   - if product.errors.any?
     #error_explanation
       %h2
@@ -7,5 +7,17 @@
       %ul
         - product.errors.full_messages.each do |message|
           %li= message
+  .form-group
+    = f.label :name, class: 'control-label col-md-3'
+    .col-md-9
+      = f.text_field :name, class: 'form-control', required: true
+  .form-group
+    = f.label "Price ($)", class: 'control-label col-md-3'
+    .col-md-9
+      = f.text_field :price, class: 'form-control', required: true, placeholder: '12.34'
+  .form-group
+    = f.label :description, class: 'control-label col-md-3'
+    .col-md-9
+      = f.text_area :description, class: 'form-control', required: true
   .actions
-    = f.submit
+    = f.submit nil, class: 'btn btn-primary'

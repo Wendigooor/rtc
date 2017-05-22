@@ -1,4 +1,22 @@
 %p#notice= notice
-= link_to 'Edit', edit_product_path(@product)
-|
-= link_to 'Back', products_path
+
+%p
+  %b
+    Name:
+  %br
+  = @product.name
+%p
+  %b
+    Price:
+  %br
+  = @product.price
+%p
+  %b
+    Desc:
+  %br
+  = @product.description
+
+- if current_user && @product.user_id == current_user.id
+  = link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary'
+  = link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger'
+= link_to 'Back', products_path, class: 'btn btn-default'

@@ -7,11 +7,13 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    - if current_user
-      = "Hi, #{current_user.email}"
-      %br
-      = link_to 'Logout', destroy_user_session_path, method: :delete
-    - else
-      = link_to 'Login with Stripe', user_stripe_connect_omniauth_authorize_path
+    .container
+      .header.clearfix
+        - if current_user
+          = "Hi, #{current_user.email}"
+          %br
+          = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-link'
+        - else
+          = link_to 'Login with Stripe', user_stripe_connect_omniauth_authorize_path
 
-    = yield
+      = yield
