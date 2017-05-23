@@ -16,10 +16,13 @@ class ChargesController < ApplicationController
         params[:stripeToken],
         @product
       )
-      if charge[:status] == 200
-        
-      end
-      redirect_to products_url
+      notice =
+        if charge[:status] == 200
+          'Payment was successfully processed.'
+        else
+          charge[:error]
+        end
+      redirect_to products_url, notice: notice
     else
       redirect_to products_url
     end

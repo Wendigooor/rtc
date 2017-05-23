@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1= "Hi, #{@user.email}" 
+    %p
+      Successful charge
+    %p
+      Product:
+      %br
+      = @product&.name
+      %br
+      = @product&.price
+      %br
+      = @product&.description
+    %p
+      You can check charge 
+      = link_to "https://dashboard.stripe.com/test/payments/#{@response['id']}", "https://dashboard.stripe.com/test/payments/#{@response['id']}"

@@ -1,16 +1,5 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
-  # def stripe_connect
-  #     @user = User.omniauth(request.env["omniauth.auth"])
-      
-  #     if @user.persisted?
-  #       sign_in_and_redirect @user
-  #     else
-  #       session["devise.stripe_connect_data"] = request.env["omniauth.auth"]
-  #       redirect_to new_user_registration_url
-  #     end
-  # end
-
   def stripe_connect
     omniauth_info = request.env["omniauth.auth"]
     @user = User.omniauth(omniauth_info)

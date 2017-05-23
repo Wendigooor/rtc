@@ -2,6 +2,7 @@ class Charge < ApplicationRecord
   belongs_to :user
   belongs_to :product
 
+  after_create :send_email
   
   def self.process_payment(user, token, product)
     amount = product.price * 100
@@ -18,17 +19,18 @@ class Charge < ApplicationRecord
       })
       response[:status] = 200
       Charge.create(user: user, product: product, response: charge)
-
-    rescue Stripe::CardError => e
+    rescue Stripe::CardError, Stripe::InvalidRequestError => e
       error = e.json_body[:error][:message]
       response[:status] = 500
-      response[:error] = error
-    rescue Stripe::InvalidRequestError => e
-      error = e.json_body[:error][:message]
-      response[:status] = 500
-      response[:error] = error
+      response[:error] = "Sorry! #{error}"
     end
     response
+  end
+
+  def send_email
+    ChargesMailer
+      .successful_charge(self)
+      .deliver
   end
 
 end
