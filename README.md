@@ -14,3 +14,11 @@
   password: 123Rtc321_
 
 
+
+User can create and edit/destroy(only his own) products.
+Everyone can view all products.
+User can buy any not his own product.
+
+Login with Stripe Connect OAuth.
+All successful payments are saved in db, after successful purchase user will receive email.
+Platform fee 10%.
