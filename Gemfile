@@ -33,3 +33,5 @@ gem 'html2haml'
 
 gem 'omniauth-stripe-connect'
 gem 'stripe'
+
+gem 'sendgrid-ruby'
