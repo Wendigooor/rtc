@@ -15,7 +15,7 @@ password: 123Rtc321_
 login: rtc1seller@gmail.com
 password: 123Rtc321_
 
-
+----------------------------
 
 - User can create and edit/destroy(only his own) products.
 - Everyone can view all products.
