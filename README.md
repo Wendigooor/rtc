@@ -3,7 +3,8 @@
 * Deployed app:
 
  https://secret-brushlands-58285.herokuapp.com
- https://secret-brushlands-58285.herokuapp.com/products
+
+----------------------------
 
 * Stripe Login
 	
