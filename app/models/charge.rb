@@ -15,7 +15,7 @@ class Charge < ApplicationRecord
         source: token,
         description: "RTC charge: #{product.name}",
         application_fee: platform_fee,
-        destination: user.uid
+        destination: product.user.uid
       })
       response[:status] = 200
       Charge.create(user: user, product: product, response: charge)
