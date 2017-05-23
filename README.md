@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Deployed app:
 
-Things you may want to cover:
+    https://secret-brushlands-58285.herokuapp.com
+    https://secret-brushlands-58285.herokuapp.com/products
 
-* Ruby version
+* Stripe Login
+	
+	login: rtc1store@gmail.com
+  password: 123Rtc321_
 
-* System dependencies
+	login: rtc1seller@gmail.com
+  password: 123Rtc321_
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
